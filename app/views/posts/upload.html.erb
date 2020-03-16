@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="posts">
+    <ul class ="upload_form">
+      <div class="file_wrap">
+        <%= f.file_field :image, "ファイルを選択" %>
+      </div>
+      <div class="field">
+        <%= f.text_area :title, "タイトル" %>
+      </div>
+      <div class="textarea_wrap">
+        <%= f.text_area :comment, "キャプション" %>
+      </div>
+      <div class="textarea_wrap">
+        <%= f.text_area :tag, "タグ" %>
+      </div>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div class = "registration">
+  <div class = "registration_form">
+    <h1>イラスト投稿サイト</h1>
+    <h1>アカウント作成</h1>
+      <%= form_for @user, url: registration_path do |f| %>
+        <div class = "field">
+          <%= f.email_field :email, placeholder: "メールアドレス" %>
+        </div>
+        <div class = "field">
+          <%= f.password_field :password, placeholder: "パスワード" %>
+        </div>
+        <button>登録する</button>
+      <% end %>
+    <div class = "login_link">
+      <p><%= link_to login_path do %>ログイン<% end %></p>
+    </div>
+  </div>
+</div>

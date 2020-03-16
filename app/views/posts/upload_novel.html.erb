@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="posts">
+    <ul class ="upload_novel_form">
+      <div class="field">
+        <%= f.text_area :title, "タイトル" %>
+      </div>
+      <div class="textarea_wrap">
+        <%= f.text_area :caption, "キャプション" %>
+      </div>
+      <div class="textarea_wrap">
+        <%= f.text_area :sentence, "本文" %>
+      </div>
+      <div class="textarea_wrap">
+        <%= f.text_area :tag, "タグ" %>
+      </div>
+      <div class="file_wrap">
+        <li><%= f.label :image, "表紙" %></li>
+        <%= f.file_field :image, "ファイルを選択" %>
+      </div>
+    </ul>
+  </div>
+</div>
