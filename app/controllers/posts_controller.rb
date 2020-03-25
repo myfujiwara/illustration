@@ -5,12 +5,16 @@ class PostsController < ApplicationController
   def upload
   end
   
-  def create_illstration
+  def create
   end
   
-  def upload_novel
+  def profiles
   end
   
-  def create_novel
+  def manage
   end
+  
+  def artworks
+  end
+  
 end

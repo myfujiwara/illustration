@@ -32,4 +32,13 @@ class UsersController < ApplicationController
       redirect_to("/login")
     end
   end
+  
+  def setting
+  end
+  
+  def edit
+  end
+  
+  def following
+  end
 end
