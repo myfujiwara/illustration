@@ -33,12 +33,16 @@ class UsersController < ApplicationController
     end
   end
   
+  def profiles
+  
+  end
+  
   def setting
   end
   
   def edit
   end
   
-  def following
+  def followers
   end
 end

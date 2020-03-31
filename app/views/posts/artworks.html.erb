@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="posts">
+    <ul>
+      <li>
+        <p><%= user.name %></p>
+        <p><%= post.title %></p>
+        <p><%= post.comment %></p>
+        <div class="image">
+          <!--画像は複数、どうする？-->
+          <%= image_tag image1_url(@post) %>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
