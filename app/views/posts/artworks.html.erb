@@ -9,7 +9,18 @@
           <!--画像は複数、どうする？-->
           <%= image_tag image1_url(@post) %>
         </div>
+        <!--複数だったらすべて見る-->
       </li>
     </ul>
+    <h3>コメントする</h3>
+  </div>
+  <div class="user">
+    <div class="image">
+      <%= link_to profiles_path do(user.id) %>
+        <%= image_tag user_url(user) %>
+        <%= user.name %>
+      <% end %>
+    </div>
+    <p>フォローする</p>
   </div>
 </div>
