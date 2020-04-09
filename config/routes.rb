@@ -10,9 +10,9 @@ Rails.application.routes.draw do
   get '/artworks/{:id}', to:'posts#artworks'
   get '/users/{:id}/follow', to:'users#follow'
   get '/users/bookmarks', to:'users#bookmarks'
-  get '/users/{:id}/followers', to:'users#followers'
+  get '/users/{:id}/follower', to:'users#follower'
   get '/users/{:id}', to:'users#profiles'
-  get '/setting_profile', to:'users#setting'
-  post '/setting_profile', to:'users#edit'
+  get '/setting_profile', to:'users#edit', as: :edit
+  post '/setting_profile', to:'users#update', as: :update
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

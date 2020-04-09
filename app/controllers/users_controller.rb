@@ -34,15 +34,50 @@ class UsersController < ApplicationController
   end
   
   def profiles
-  
-  end
-  
-  def setting
+    @user = User.find(current_user.id)
+    @posts = Post.where(user_id: @user.id)
+    @follows = Follow.where(user_id: @user.id)
+    @followers = Follower.where(user_id: @user.id)
   end
   
   def edit
+    @user = User.find(current_user.id)
   end
   
-  def followers
+  def update
+    @user = User.find(current_user.id)
+    
+    @user.name = params[:name]
+    @user.comment =params[:comment]
+    upload_file = params[:user][:image]
+    if upload_file.present?
+      upload_file_name = upload_file.original_filename
+      output_dir = Rails.root.join('public', 'users')
+      output_path = output_dir + upload_file_name
+      
+      File.open(output_path, 'w+b') do |f|
+      f.write(upload_file.read)
+    end
+    current_user.update(user_params.merge({image: upload_file.original_filename}))
+    end
+    
+    if @user.update(user_params)
+      flash[:success] = "プロフィールを更新しました。"
+      redirect_to("/users/{:id}")
+    else
+      flash[:danger] = "プロフィール更新に失敗しました。"
+      redirect_to("/setting_profile")
+    end
   end
+  
+  def follow
+    @user = User.find(current_user.id)
+    @follows = Follow.where(user_id: @user.id)
+  end
+  
+  def follower
+    @user = User.find(current_user.id)
+    @followers = Follower.where(user_id: @user.id)
+  end
+    
 end
