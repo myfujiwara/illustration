@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   post '/upload', to:'posts#create', as: :create
   get '/manage/illusts', to:'posts#manage', as: :manage
   get '/artworks/{:id}', to:'posts#artworks'
-  get '/users/{:id}/follow', to:'users#follow'
+  get '/users/{:id}/follow', to:'users#follow_list', as: :follow_list
+  get '/users/{:id}/follower', to:'users#follower_list', as: :follower_list
   get '/users/bookmarks', to:'users#bookmarks'
-  get '/users/{:id}/follower', to:'users#follower'
   get '/users/{:id}', to:'users#profiles'
   get '/setting_profile', to:'users#edit', as: :edit
   post '/setting_profile', to:'users#update', as: :update
