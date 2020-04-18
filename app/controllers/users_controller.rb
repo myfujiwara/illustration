@@ -7,7 +7,6 @@ class UsersController < ApplicationController
     user = User.new(user_params)
     if user.save
       user_login(user)
-# 登録できない内容によって文章が変わるのにしたい
       flash[:success] = "ユーザー登録に成功しました。"
       redirect_to("/login")
     else
@@ -71,13 +70,29 @@ class UsersController < ApplicationController
   end
   
   def follow
-    @user = User.find(current_user.id)
-    @follows = Follow.where(user_id: @user.id)
+    @user = User.find(params[:id])
+    if Follow.exists?(user_id: current_user.id, follow_user_id: @user.id)
+      Follow.find_by(user_id: current_user.id, follow_user_id: @user.id).destroy
+    else
+      Follow.create(user_id: current_user.id, follow_user_id: @user.id)
+    end
   end
   
   def follower
-    @user = User.find(current_user.id)
-    @followers = Follower.where(user_id: @user.id)
   end
-    
+  
+  def follow_list
+    @user = User.find(current_user.id)
+    @users = User.where(id: Follow.where(user_id: @user.id).pluck(:follow_user_id))
+  end
+  
+  def follower_list
+    @user = User.find(current_user.id)
+    @users = User.where(id: Follow.where(user_id: @user.id).pluck(:user_id))
+  end
+  
+  private
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :comment, :image)
+  end
 end

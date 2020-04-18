@@ -3,7 +3,7 @@
     <ul class ="upload_form">
     <%= form_for @post do |f| %>
       <div class="file_wrap">
-        <%= f.file_field :image, "ファイルを選択" %>
+        <%= f.file_field :images, mutiple: true, "ファイルを選択" %>
       </div>
       <div class="field">
         <%= f.text_area :title, "タイトル" %>

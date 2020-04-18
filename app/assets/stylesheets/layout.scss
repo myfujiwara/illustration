@@ -51,7 +51,7 @@ body.logined {
       font-size: 14px;
       outline: none;
       padding: 3px 10px 3px 10px;
-      background-color: #eee;
+      background-color: white;
       height: 30px;
       display: inline-block;
       width: 100%;
@@ -81,4 +81,36 @@ body.logined {
 .container {
   width: 960px;
   margin: 0 auto;
+}
+// アラート
+.alert {
+  position: fixed;
+  background-color: #fff;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 40px;
+  text-align: center;
+  z-index: 1000;
+  line-height: 40px;
+  &-success, &-notice {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+  }
+  &-info {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+  }
+  &-warning {
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+  }
+  &-danger{
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+  }
 }
