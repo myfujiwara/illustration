@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
   def top
+    @posts = Post.all
     @posts = @posts.order("id desc")
-    @user = User.find(current_user.id)
+    # @user = User.where(params[:id])
   end
   
   def upload

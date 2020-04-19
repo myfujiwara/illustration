@@ -6,7 +6,6 @@ class UsersController < ApplicationController
   def registration_process
     user = User.new(user_params)
     if user.save
-      user_login(user)
       flash[:success] = "ユーザー登録に成功しました。"
       redirect_to("/login")
     else

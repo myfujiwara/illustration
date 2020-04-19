@@ -1,33 +1,12 @@
 <div class="container">
-  <div class="user">
-    <ul>
-      <div class="image">
-        <%= link_to profiles_path do(user.id) %>
-          <%= image_tag user_url(user) %>
-          <%= user.name %>
-        <% end %>
-      </div>
-      <li>
-        <%= link_to 'フォロー', '/users/{:id}/follow' %>
-      </li>
-      <li>
-        <%= link_to 'フォロワー', '/users/{:id}/follower' %>
-      </li>
-      <li>
-        <%= link_to 'ブックマーク', '/users/bookmarks' %>
-      </li>
-      <!--<li>閲覧履歴</li>-->
-    </ul>
-  </div>
   
   <% if @posts.any? %>
     <div class ="post">
       <ul>
         <% @posts.each do |post| %>
-          <h2>みんなの新着投稿</h2>
             <li>
               <div class ="image">
-                <%= link_to artworks_path do(post.id) %>
+                <%= link_to artworks_path do %>
                   <%= image_tag image1_url(post) %>
                 <% end %>
               </div>
@@ -41,22 +20,4 @@
     <p class="empty">投稿がありません。</p>
   <% end %>
   
-  <% if @recommends.any? %>
-    <div class ="recommend">
-      <ul>
-        <% @recommends.each do |user| %>
-          <li>
-            <h2>みんなの新着投稿</h2>
-            <div class ="image">
-              <%= link_to artworks_path do(post.id) %>
-                <%= image_tag image1_url(post) %>
-              <% end %>
-            </div>
-            <p><%= post.name %></p>
-            <p><%= user.name %></p>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-</div>
+  
