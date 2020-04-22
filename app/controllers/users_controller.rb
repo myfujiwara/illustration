@@ -24,9 +24,10 @@ class UsersController < ApplicationController
     
     if user
       user_login(user)
+      flash[:success] = "ログインしました"
       redirect_to("/") and return
     else
-      flash[:danger] = "サインインに失敗しました"
+      flash[:danger] = "ログインに失敗しました"
       redirect_to("/login")
     end
   end
@@ -39,7 +40,7 @@ class UsersController < ApplicationController
   end
   
   def edit
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
   end
   
   def update

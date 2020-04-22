@@ -2,7 +2,8 @@ class PostsController < ApplicationController
   def top
     @posts = Post.all
     @posts = @posts.order("id desc")
-    # @user = User.where(params[:id])
+    @user = User.find(params[:id])
+    @reccomends = Post.where.not(id: current_user.id).limit(5)
   end
   
   def upload
@@ -19,6 +20,6 @@ class PostsController < ApplicationController
   
   private
   def post_params
-    params.require(:post).permit(:title, :comment, images: [])
+    params.require(:post).permit(:title, :comment, images: []).merge(user_id: current_user.id)
   end
 end

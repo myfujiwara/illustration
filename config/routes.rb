@@ -5,13 +5,14 @@ Rails.application.routes.draw do
   get '/login', to:'users#login', as: :login
   post '/login', to:'users#login_process'
   get '/upload', to:'posts#upload', as: :upload
+  resources :posts
   post '/upload', to:'posts#create', as: :create
   get '/manage/illusts', to:'posts#manage', as: :manage
   get '/artworks/{:id}', to:'posts#artworks'
   get '/users/{:id}/follow', to:'users#follow_list', as: :follow_list
   get '/users/{:id}/follower', to:'users#follower_list', as: :follower_list
   get '/users/bookmarks', to:'users#bookmarks'
-  get '/users/{:id}', to:'users#profiles'
+  get '/users/profiles', to:'users#profiles', as: :profiles
   get '/setting_profile', to:'users#edit', as: :edit
   post '/setting_profile', to:'users#update', as: :update
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
