@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  
+  # before_action :authorize
+  
   def registration
     @user = User.new
   end
@@ -89,6 +92,11 @@ class UsersController < ApplicationController
   def follower_list
     @user = User.find(current_user.id)
     @users = User.where(id: Follow.where(user_id: @user.id).pluck(:user_id))
+  end
+  
+  def bookmarks
+    @user = User.find(current_user.id)
+    @postlikes = PostLike.where(user_id: @user.id)
   end
   
   private
