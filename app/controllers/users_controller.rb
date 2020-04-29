@@ -39,7 +39,6 @@ class UsersController < ApplicationController
     @user = User.find(current_user.id)
     @posts = Post.where(user_id: @user.id)
     @follows = Follow.where(user_id: @user.id)
-    @followers = Follower.where(user_id: @user.id)
   end
   
   def edit

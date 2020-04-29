@@ -3,16 +3,22 @@
     <ul class ="upload_form">
     <%= form_for @post do |f| %>
       <div class="file_wrap">
-        <%= f.file_field :images, mutiple: true, "ファイルを選択" %>
+        <!--複数投稿できるようにする-->
+        <p>写真選択</p>
+        <%= f.file_field :images, mutiple: true %>
       </div>
       <div class="field">
-        <%= f.text_area :title, "タイトル" %>
+        <p>タイトル</p>
+        <%= f.text_area :title %>
       </div>
       <div class="textarea_wrap">
-        <%= f.text_area :comment, "キャプション" %>
+        <p>キャプション</p>
+        <%= f.text_area :caption %>
       </div>
+      <!--タグ付け調べる-->
       <div class="textarea_wrap">
-        <%= f.text_area :tag, "タグ" %>
+        <p>タグ</p>
+        <%= f.text_area :tag %>
       </div>
     </ul>
     <div class="btn_wrap">

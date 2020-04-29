@@ -15,8 +15,20 @@
         <% end %>
       </div>
       <form class="search">
-        <input type="text" placeholder="検索ワードを入力" name="word" value="">
+        <input type="text" placeholder="検索" name="word" value="">
       </form>
+      <ul class="menu">
+        <li>
+          <%= link_to profiles_path do %>  
+          <i class="fa fa-user-o"></i>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to upload_path do %>
+            <i class="fa fa-upload"></i>
+          <% end %>
+        </li>
+      </ul>
     </header>
     <% flash.each do |type, message| %>
     <div class="alert alert-<%= type %>"><%= message %></div>
